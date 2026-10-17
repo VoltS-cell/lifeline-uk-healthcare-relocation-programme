@@ -714,8 +714,11 @@
         <div id="successCard" class="hidden rounded-3xl bg-white p-10 text-center shadow-2xl">
           <span class="mx-auto w-16 h-16 rounded-full bg-cyan-500 flex items-center justify-center"><svg width="30" height="30" fill="none" stroke="#fff" stroke-width="3" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>
           <h3 class="mt-6 font-display text-2xl font-bold text-navy-900">Thank you, <span id="okName"></span>.</h3>
-          <p class="mt-3 text-slate-600">Your email app has opened with your application details. Press send so our advisors receive it, and we'll be in touch with your eligibility outcome.</p>
-          <p class="mt-3 text-sm text-slate-500">If nothing opened, email <a id="okEmail" class="text-cyan-600 font-semibold underline" href="#"></a>.</p>
+          <p id="okSent" class="mt-3 text-slate-600">Your application has been received. An advisor will review it in the order it arrived and contact you by email or WhatsApp with your eligibility outcome and the full pricing framework.</p>
+          <div id="okMailto" class="hidden">
+            <p class="mt-3 text-slate-600">We couldn't send your application automatically, so your email app has opened with your details. Press send so our advisors receive it.</p>
+            <p class="mt-3 text-sm text-slate-500">If nothing opened, email <a id="okEmail" class="text-cyan-600 font-semibold underline" href="#"></a>.</p>
+          </div>
           <button id="againBtn" type="button" class="mt-7 px-6 py-3 rounded-full border-2 border-navy-900 font-semibold hover:bg-navy-900 hover:text-white transition">Submit another application</button>
         </div>
       </div>
@@ -986,11 +989,42 @@
           'Submitted: ' + new Date().toUTCString() + '\n\n' +
           'Request: Please complete my eligibility check and send me the full pricing framework.';
         var subject = 'Program Application — ' + fd.value + ' — ' + n.value.trim();
-        window.location.href = 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-        document.getElementById('okName').textContent = n.value.trim().split(' ')[0];
-        form.classList.add('hidden'); ok.classList.remove('hidden');
-        ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        pillCheck();
+        var btn = form.querySelector('button[type="submit"]'), btnHTML = btn.innerHTML;
+        btn.disabled = true; btn.classList.add('opacity-70', 'cursor-wait'); btn.textContent = 'Sending your application…';
+        function showOk(sent) {
+          document.getElementById('okName').textContent = n.value.trim().split(' ')[0];
+          document.getElementById('okSent').classList.toggle('hidden', !sent);
+          document.getElementById('okMailto').classList.toggle('hidden', sent);
+          form.classList.add('hidden'); ok.classList.remove('hidden');
+          ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          btn.disabled = false; btn.classList.remove('opacity-70', 'cursor-wait'); btn.innerHTML = btnHTML;
+          pillCheck();
+        }
+        function mailtoFallback() {
+          window.location.href = 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+          showOk(false);
+        }
+        // Deliver straight to the inbox via FormSubmit; fall back to the visitor's email app if it fails.
+        fetch('https://formsubmit.co/ajax/' + CONFIG.email, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: subject,
+            _template: 'table',
+            _captcha: 'false',
+            _replyto: em.value.trim(),
+            'Full name': n.value.trim(),
+            'Email': em.value.trim(),
+            'Phone / WhatsApp': ph.value.trim(),
+            'Health field': fd.value,
+            'Relocating with dependants': document.getElementById('fDeps').checked ? 'Yes' : 'No',
+            'Documents ready': docs.length + '/7 — ' + (docs.length ? docs.join(', ') : 'None yet'),
+            'Request': 'Please complete my eligibility check and send me the full pricing framework.',
+            'Submitted (UTC)': new Date().toUTCString()
+          })
+        }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return r.ok && String(d.success) === 'true'; }); })
+          .then(function (sent) { if (sent) showOk(true); else mailtoFallback(); })
+          .catch(mailtoFallback);
       });
       document.getElementById('againBtn').addEventListener('click', function () {
         form.reset(); reqs.forEach(function (r) { setDoc(r.dataset.doc, false); });
