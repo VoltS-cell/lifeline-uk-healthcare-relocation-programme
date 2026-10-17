@@ -766,6 +766,13 @@
       email: 'lbconsultancy@163.com',
       // Copy of every application also goes here (comma-separate to add more).
       ccEmail: 'isaacnanakwasiisaac@yahoo.com',
+      // Automatic personalised reply to the candidate (EmailJS). Leave blank to switch off.
+      autoReply: {
+        publicKey: '',
+        serviceId: '',
+        templateStandard: '',   // Nurses, Pharmacist, X-Ray Tech
+        templateRestricted: ''  // Lab Tech, Pharmacy Assistant
+      },
       // Optional: path to your own b-roll video (e.g. 'broll.mp4'). Leave '' to use the animated route scene.
       heroVideo: '',
       // Set to false if applications are NOT reviewed first-come, first-served.
@@ -1002,6 +1009,32 @@
           btn.disabled = false; btn.classList.remove('opacity-70', 'cursor-wait'); btn.innerHTML = btnHTML;
           pillCheck();
         }
+        function sendAutoReply() {
+          var ar = CONFIG.autoReply || {};
+          var restricted = fd.value === 'Lab Tech' || fd.value === 'Pharmacy Assistant';
+          var tpl = restricted ? ar.templateRestricted : ar.templateStandard;
+          if (!ar.publicKey || !ar.serviceId || !tpl) return;
+          var params = {
+            to_name: n.value.trim().split(' ')[0],
+            full_name: n.value.trim(),
+            to_email: em.value.trim(),
+            profession: ({ 'Nurses': 'Nurse', 'Lab Tech': 'Laboratory Technician', 'Pharmacist': 'Pharmacist', 'Pharmacy Assistant': 'Pharmacy Assistant', 'X-Ray Tech': 'X-Ray Technician' })[fd.value] || fd.value,
+            family_note: document.getElementById('fDeps').checked
+              ? (restricted
+                  ? 'A NOTE ON FAMILY: You indicated you would like to bring your spouse and/or children. Whether dependants are allowed depends on the specific UK role, and some laboratory and pharmacy support roles do not permit dependants. We will confirm this honestly on the call, before you commit to anything.'
+                  : 'A NOTE ON FAMILY: You indicated you would like to bring your spouse and/or children. Eligible registered roles can usually bring dependants; we will confirm this for your exact UK role on the call.')
+              : '',
+            docs_count: String(docs.length),
+            documents: docs.length ? docs.join(', ') : 'None yet',
+            dependants: document.getElementById('fDeps').checked ? 'Yes' : 'No',
+            reply_to: CONFIG.email
+          };
+          function go() { try { window.emailjs.send(ar.serviceId, tpl, params, { publicKey: ar.publicKey }).catch(function () {}); } catch (e) {} }
+          if (window.emailjs) return go();
+          var sc = document.createElement('script');
+          sc.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@5.0.3/dist/email.min.js';
+          sc.onload = go; document.head.appendChild(sc);
+        }
         function mailtoFallback() {
           window.location.href = 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
           showOk(false);
@@ -1026,7 +1059,7 @@
             'Submitted (UTC)': new Date().toUTCString()
           })
         }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return r.ok && String(d.success) === 'true'; }); })
-          .then(function (sent) { if (sent) showOk(true); else mailtoFallback(); })
+          .then(function (sent) { if (sent) { showOk(true); sendAutoReply(); } else mailtoFallback(); })
           .catch(mailtoFallback);
       });
       document.getElementById('againBtn').addEventListener('click', function () {
