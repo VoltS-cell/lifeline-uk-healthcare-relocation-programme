@@ -764,6 +764,8 @@
       // Real closing date of the current intake window (ISO, UTC/GMT).
       intakeDeadline: '2026-12-31T23:59:59Z',
       email: 'lbconsultancy@163.com',
+      // Copy of every application also goes here (comma-separate to add more).
+      ccEmail: 'isaacnanakwasiisaac@yahoo.com',
       // Optional: path to your own b-roll video (e.g. 'broll.mp4'). Leave '' to use the animated route scene.
       heroVideo: '',
       // Set to false if applications are NOT reviewed first-come, first-served.
@@ -1013,6 +1015,7 @@
             _template: 'table',
             _captcha: 'false',
             _replyto: em.value.trim(),
+            _cc: CONFIG.ccEmail,
             'Full name': n.value.trim(),
             'Email': em.value.trim(),
             'Phone / WhatsApp': ph.value.trim(),
