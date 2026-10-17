@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UK Healthcare Relocation Program | Lifeline Travel Consult</title>
+  <meta name="description" content="Lifeline Travel Consult — UK Healthcare Relocation & Dossier-Routing Program for Ghanaian nurses, pharmacists, lab and imaging professionals. We Plan, You Explore." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { 950: '#060B18', 900: '#0F172A', 800: '#1E293B', 700: '#334155' },
+            cyan: { 300: '#7DD3FC', 400: '#38BDF8', 500: '#0EA5E9', 600: '#0284C7' },
+            gold: { 300: '#FCE7A2', 400: '#F5C84C', 500: '#E3A92B', 600: '#B7841A' }
+          },
+          fontFamily: {
+            display: ['Poppins', 'system-ui', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .grid-bg { background-image: linear-gradient(rgba(14,165,233,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(14,165,233,.07) 1px, transparent 1px); background-size: 46px 46px; }
+    @keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-9px) } }
+    .animate-float { animation: float 5s ease-in-out infinite; }
+    .animate-float-slow { animation: float 7s ease-in-out infinite; }
+    @keyframes shine { 0% { background-position: -200% 0 } 100% { background-position: 200% 0 } }
+    .gold-banner { background: linear-gradient(110deg, #B7841A 0%, #F5C84C 25%, #FCE7A2 50%, #F5C84C 75%, #B7841A 100%); background-size: 200% 100%; animation: shine 6s linear infinite; }
+    @keyframes tick { 0% { transform: translateY(-6px); opacity: .3 } 100% { transform: translateY(0); opacity: 1 } }
+    .tick { animation: tick .35s ease-out; }
+    @keyframes ecg { from { stroke-dashoffset: 900 } to { stroke-dashoffset: 0 } }
+    .ecg { stroke-dasharray: 900; animation: ecg 3.2s linear infinite; }
+    @keyframes dash { to { stroke-dashoffset: -40 } }
+    .route { stroke-dasharray: 6 8; animation: dash 1.6s linear infinite; }
+    @keyframes pulseRing { 0% { r: 5; opacity: .9 } 100% { r: 18; opacity: 0 } }
+    .pulse-ring { animation: pulseRing 2s ease-out infinite; }
+    @keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+    .marquee { animation: marquee 38s linear infinite; }
+    .marquee:hover { animation-play-state: paused; }
+    .req[data-done="true"] { border-color: #0EA5E9; background: linear-gradient(180deg, rgba(14,165,233,.10), rgba(14,165,233,.02)); }
+    .req[data-done="true"] .req-box { background: #0EA5E9; border-color: #0EA5E9; color: #fff; }
+    .req[data-done="true"] .req-title { text-decoration: line-through; text-decoration-color: #0EA5E9; text-decoration-thickness: 2px; color: #475569; }
+    .req[data-done="true"] .req-tag { background: #0EA5E9; color: #fff; }
+    .step-btn[aria-selected="true"] .step-dot { background: #0EA5E9; color: #fff; border-color: #0EA5E9; box-shadow: 0 0 0 6px rgba(14,165,233,.18); }
+    .step-btn[aria-selected="true"] .step-label { color: #0F172A; }
+    .step-panel { display: none; }
+    .step-panel.active { display: block; animation: fadeUp .45s ease-out both; }
+    .role-panel { display: none; }
+    .role-panel.active { display: grid; animation: fadeUp .45s ease-out both; }
+    .role-tab[aria-selected="true"] { background: #0F172A; color: #fff; border-color: #0F172A; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px) } to { opacity: 1; transform: translateY(0) } }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .ring-fill { transition: stroke-dashoffset .6s ease; }
+    .logo-fallback { display: none; }
+    img.broken { display: none; }
+    img.broken + .logo-fallback { display: flex; }
+    .doc-chip input:checked + span { border-color: #0EA5E9; background: #F0F9FF; }
+    .doc-chip input:checked + span .chip-box { background: #0EA5E9; border-color: #0EA5E9; color: #fff; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body class="bg-slate-50 text-navy-900 antialiased">
+
+  <!-- ================= NAVIGATION ================= -->
+  <header class="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3" aria-label="Lifeline Services home">
+        <img src="data:image/webp;base64,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" alt="Lifeline Services" class="h-11 w-auto" onerror="this.classList.add('broken')" />
+        <span class="logo-fallback items-center gap-2">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1F6FB2" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M8 14.5a6 6 0 1 1 8 0c-.8.8-1.3 1.6-1.5 2.5H9.5c-.2-.9-.7-1.7-1.5-2.5z"/><path d="M9.5 19.5h5M10.5 22h3"/></svg>
+          <span class="font-display font-semibold leading-none text-navy-900">LifeLine<br /><span class="text-sm">Services</span></span>
+        </span>
+      </a>
+      <div class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600">
+        <a href="#insights" class="hover:text-cyan-600 transition">Insights</a>
+        <a href="#roles" class="hover:text-cyan-600 transition">Roles</a>
+        <a href="#audit" class="hover:text-cyan-600 transition">Dossier Audit</a>
+        <a href="#roadmap" class="hover:text-cyan-600 transition">Roadmap</a>
+        <a href="#apply" class="px-5 py-2.5 rounded-full bg-navy-900 text-white font-semibold hover:bg-cyan-600 transition">Apply Now</a>
+      </div>
+      <button id="menuBtn" class="lg:hidden p-2 text-navy-900" aria-label="Open menu" aria-expanded="false">
+        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-3 text-slate-700 font-medium">
+      <a href="#insights" class="block">Insights</a>
+      <a href="#roles" class="block">Roles</a>
+      <a href="#audit" class="block">Dossier Audit</a>
+      <a href="#roadmap" class="block">Roadmap</a>
+      <a href="#apply" class="block text-center py-2.5 rounded-full bg-navy-900 text-white">Apply Now</a>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section id="top" class="relative overflow-hidden bg-navy-900 pt-28 pb-40 lg:pt-36 lg:pb-48">
+    <div class="absolute inset-0 grid-bg"></div>
+    <div class="absolute -top-40 -right-32 w-[560px] h-[560px] rounded-full bg-cyan-500/20 blur-3xl"></div>
+    <div class="absolute -bottom-52 -left-40 w-[480px] h-[480px] rounded-full bg-gold-500/10 blur-3xl"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-6">
+        <div class="inline-flex items-center gap-4 rounded-2xl bg-white px-4 py-3 shadow-lg">
+          <img src="data:image/webp;base64,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" alt="Lifeline Travel Consult — We Plan, You Explore" class="h-20 sm:h-24 w-auto" onerror="this.classList.add('broken')" />
+          <span class="logo-fallback items-center gap-3">
+            <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+              <path d="M6 12h17M4.5 17h23M4 22h21M5.5 27h15M9 32h9" stroke="#5B7FD6" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M8 14.5h12M7 24.5h10" stroke="#D4A537" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M28 31l8-5-1.5-1.5-4 1.5-3-3-1.5.8 2 3.4-2.5 1.6-1.6-.6-.9.9 2.4 1.4z" fill="#0F172A"/>
+            </svg>
+            <span class="border-l border-slate-300 pl-3 leading-tight">
+              <span class="block font-display font-bold text-navy-900">Lifeline Travel Consult</span>
+              <span class="block text-sm text-[#6B3A3A]">We Plan, You Explore</span>
+            </span>
+          </span>
+        </div>
+
+        <div class="mt-7 inline-block gold-banner rounded-full px-5 py-2.5 shadow-xl shadow-gold-500/20 border border-gold-300">
+          <p class="text-navy-900 font-bold text-sm sm:text-base">🇬🇧 Vetted Partner Program — Limited Intake Places for Q1/Q2 Cohorts</p>
+        </div>
+
+        <h1 class="mt-7 font-display text-4xl sm:text-5xl lg:text-[3.6rem] font-extrabold text-white leading-[1.08]">
+          Your UK healthcare career,<br /><span class="text-cyan-400">planned with precision.</span>
+        </h1>
+        <p class="mt-6 text-lg text-slate-300 max-w-xl leading-relaxed">
+          A structured relocation and dossier-routing program for Ghanaian nurses, pharmacists, laboratory and imaging professionals. We audit, optimise and route your documents so you arrive at your UK interview fully prepared &mdash; with your family's paperwork ready alongside yours.
+        </p>
+        <div class="mt-9 flex flex-col sm:flex-row gap-4">
+          <a href="#apply" class="inline-flex justify-center items-center gap-2 px-7 py-4 rounded-full bg-cyan-500 text-white font-bold hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/30">
+            Check My Eligibility
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#audit" class="inline-flex justify-center items-center px-7 py-4 rounded-full border border-white/25 text-white font-semibold hover:border-cyan-400 hover:text-cyan-300 transition">Run the 3-Minute Audit</a>
+        </div>
+
+        <!-- Profession avatars -->
+        <div class="mt-10 flex items-center gap-4">
+          <div class="flex -space-x-3" id="avatarStack"></div>
+          <p class="text-sm text-slate-400 leading-snug">Nurses &middot; Pharmacists &middot; Lab &amp; Imaging<br />professionals from across Ghana</p>
+        </div>
+      </div>
+
+      <!-- B-roll visual -->
+      <div class="lg:col-span-6 relative">
+        <div class="relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-navy-800 to-navy-950 shadow-2xl">
+          <div class="flex items-center gap-2 px-5 py-3 border-b border-white/10">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span><span class="w-2.5 h-2.5 rounded-full bg-gold-400"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <p class="ml-3 text-xs text-slate-400 tracking-wider">ACCRA &rarr; UNITED KINGDOM &middot; LIVE ROUTE</p>
+          </div>
+          <div id="brollWrap" class="relative aspect-[16/11]">
+            <!-- Animated route scene (replaced by video if CONFIG.heroVideo is set) -->
+            <svg id="brollSvg" viewBox="0 0 560 385" class="absolute inset-0 w-full h-full" aria-hidden="true">
+              <defs>
+                <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#0EA5E9" stop-opacity=".35"/><stop offset="100%" stop-color="#0EA5E9" stop-opacity="0"/></radialGradient>
+                <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#334155"/></pattern>
+              </defs>
+              <rect width="560" height="385" fill="url(#dots)" opacity=".7"/>
+              <!-- Stylised Europe / Africa landmasses -->
+              <path d="M250 40c30-10 70-8 92 10 18 14 10 34 28 44 20 12 8 36-14 40-26 4-30 22-58 20-30-2-44-20-62-36-20-18-24-62 14-78z" fill="#1E293B" stroke="#334155"/>
+              <path d="M210 170c40-14 96-10 128 6 24 12 30 40 22 68-10 34-28 54-40 84-8 20-30 32-48 18-20-16-14-48-30-66-18-20-46-26-52-52-6-26-2-48 20-58z" fill="#1E293B" stroke="#334155"/>
+              <circle cx="280" cy="250" r="60" fill="url(#glow)"/>
+              <!-- Route -->
+              <path id="routePath" d="M262 252 C 230 190, 250 120, 288 82" fill="none" stroke="#38BDF8" stroke-width="2.5" class="route"/>
+              <!-- Accra -->
+              <circle cx="262" cy="252" r="5" fill="#F5C84C"/><circle cx="262" cy="252" r="5" fill="none" stroke="#F5C84C" stroke-width="2" class="pulse-ring"/>
+              <text x="178" y="268" fill="#FCE7A2" font-family="Inter" font-size="13" font-weight="600">Accra, Ghana</text>
+              <!-- London -->
+              <circle cx="288" cy="82" r="5" fill="#38BDF8"/><circle cx="288" cy="82" r="5" fill="none" stroke="#38BDF8" stroke-width="2" class="pulse-ring"/>
+              <text x="300" y="78" fill="#7DD3FC" font-family="Inter" font-size="13" font-weight="600">United Kingdom</text>
+              <!-- Plane -->
+              <g>
+                <path d="M-9 0 L9 0 M0 -7 L4 0 L0 7 M-8 -3 L-6 0 L-8 3" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <animateMotion dur="5s" repeatCount="indefinite" rotate="auto"><mpath href="#routePath"/></animateMotion>
+              </g>
+              <!-- ECG strip -->
+              <g transform="translate(24,318)">
+                <rect width="512" height="46" rx="10" fill="#0F172A" stroke="#1E293B"/>
+                <path d="M10 23 H120 L132 23 L140 8 L150 38 L160 4 L170 23 H260 L272 23 L280 8 L290 38 L300 4 L310 23 H400 L412 23 L420 8 L430 38 L440 4 L450 23 H502" fill="none" stroke="#22D3EE" stroke-width="2" class="ecg"/>
+              </g>
+            </svg>
+            <!-- Floating info chips -->
+            <div class="absolute top-5 left-5 rounded-xl bg-white/10 backdrop-blur border border-white/10 px-3 py-2 animate-float-slow">
+              <p class="text-[10px] uppercase tracking-wider text-slate-300">Route</p>
+              <p class="text-sm font-semibold text-white">Health &amp; Care Worker</p>
+            </div>
+            <div class="absolute top-20 right-5 rounded-xl bg-white/10 backdrop-blur border border-white/10 px-3 py-2 animate-float">
+              <p class="text-[10px] uppercase tracking-wider text-slate-300">English</p>
+              <p class="text-sm font-semibold text-white">IELTS &middot; OET</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating dependants card -->
+        <div class="absolute -bottom-12 -left-3 sm:-left-8 animate-float z-10 max-w-[300px]">
+          <div class="rounded-2xl bg-white p-5 shadow-2xl shadow-black/40 border-2 border-gold-500">
+            <div class="flex items-start gap-3">
+              <span class="shrink-0 w-11 h-11 rounded-xl bg-navy-900 flex items-center justify-center">
+                <svg width="22" height="22" fill="none" stroke="#F5C84C" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.5-4.5 3.5-4.5S21 17.5 21 20"/></svg>
+              </span>
+              <div>
+                <p class="font-bold text-navy-900 leading-snug">Full Support for Spouses &amp; Children</p>
+                <p class="mt-1 text-xs font-bold uppercase tracking-wider text-gold-600">Dependents Allowed</p>
+                <p class="mt-1.5 text-[11px] text-slate-500 leading-snug">For eligible registered roles such as nurses, pharmacists and radiographers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SESSION + DEADLINE TIMER ================= -->
+  <section id="countdown" class="relative -mt-24 z-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto rounded-3xl bg-white shadow-2xl border border-slate-200 overflow-hidden">
+      <div class="grid lg:grid-cols-5">
+        <!-- Session timer -->
+        <div class="lg:col-span-2 bg-navy-900 text-white p-7 sm:p-9 relative overflow-hidden">
+          <div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-cyan-500/20 blur-2xl"></div>
+          <p class="relative text-xs font-bold uppercase tracking-[.2em] text-cyan-300">Your session</p>
+          <div class="relative mt-4 flex items-center gap-5">
+            <svg width="96" height="96" viewBox="0 0 100 100" class="-rotate-90 shrink-0" aria-hidden="true">
+              <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="8"/>
+              <circle id="sessRing" cx="50" cy="50" r="42" fill="none" stroke="#0EA5E9" stroke-width="8" stroke-linecap="round" stroke-dasharray="263.9" stroke-dashoffset="263.9" class="ring-fill"/>
+            </svg>
+            <div>
+              <p class="text-sm text-slate-300">You've been exploring for</p>
+              <p id="sessTime" class="font-display text-4xl font-bold tabular-nums">00:00</p>
+            </div>
+          </div>
+          <p id="sessMsg" class="relative mt-5 text-slate-200 leading-relaxed">Welcome. The 7-point dossier audit takes about 3 minutes &mdash; start whenever you're ready.</p>
+          <a href="#apply" class="relative mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gold-500 text-navy-900 font-bold hover:bg-gold-400 transition">
+            Apply Now
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <!-- Deadline countdown -->
+        <div class="lg:col-span-3 p-7 sm:p-9">
+          <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gold-600">
+            <span class="relative flex w-2.5 h-2.5"><span class="absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75 animate-ping"></span><span class="relative inline-flex rounded-full w-2.5 h-2.5 bg-gold-500"></span></span>
+            <span id="cdStatus">Current intake window</span>
+          </span>
+          <h2 class="mt-2 font-display text-2xl sm:text-3xl font-bold text-navy-900">Intake Document Portal Closing Soon</h2>
+          <p class="mt-1 text-slate-500 text-sm">Portal closes <span id="cdDate" class="font-semibold text-navy-900"></span> (GMT).</p>
+          <div id="cdGrid" class="mt-6 grid grid-cols-4 gap-3">
+            <div class="rounded-2xl bg-slate-100 text-center py-4 sm:py-5"><p id="cdDays" class="font-display text-3xl sm:text-4xl font-bold text-navy-900 tabular-nums">00</p><p class="mt-1 text-[10px] sm:text-xs uppercase tracking-[.2em] text-slate-500">Days</p></div>
+            <div class="rounded-2xl bg-slate-100 text-center py-4 sm:py-5"><p id="cdHours" class="font-display text-3xl sm:text-4xl font-bold text-navy-900 tabular-nums">00</p><p class="mt-1 text-[10px] sm:text-xs uppercase tracking-[.2em] text-slate-500">Hours</p></div>
+            <div class="rounded-2xl bg-slate-100 text-center py-4 sm:py-5"><p id="cdMins" class="font-display text-3xl sm:text-4xl font-bold text-navy-900 tabular-nums">00</p><p class="mt-1 text-[10px] sm:text-xs uppercase tracking-[.2em] text-slate-500">Minutes</p></div>
+            <div class="rounded-2xl bg-gradient-to-br from-cyan-500 to-cyan-600 text-center py-4 sm:py-5"><p id="cdSecs" class="font-display text-3xl sm:text-4xl font-bold text-white tabular-nums">00</p><p class="mt-1 text-[10px] sm:text-xs uppercase tracking-[.2em] text-cyan-100">Seconds</p></div>
+          </div>
+          <div id="cdClosed" class="hidden mt-6 rounded-2xl bg-slate-100 p-5 text-center">
+            <p class="font-semibold text-navy-900">This intake window has closed.</p>
+            <p class="mt-1 text-sm text-slate-500">Submit your details below to join the waitlist for the next cohort.</p>
+          </div>
+          <p id="orderNote" class="mt-5 flex items-start gap-2 text-sm text-slate-600">
+            <svg width="18" height="18" class="shrink-0 mt-0.5 text-cyan-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span>Applications are reviewed in the order they arrive &mdash; the sooner you submit, the sooner an advisor reviews your dossier.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STAT MARQUEE ================= -->
+  <section class="mt-16 overflow-hidden border-y border-slate-200 bg-white py-4">
+    <div class="marquee flex w-max gap-12 whitespace-nowrap text-sm font-semibold text-slate-600">
+      <span>🌍 11 million projected global health-worker shortfall by 2030 (WHO)</span><span class="text-cyan-500">◆</span>
+      <span>🩺 867,935 professionals on the UK NMC register — a record</span><span class="text-cyan-500">◆</span>
+      <span>🇬🇭 Ghana: 3rd-largest source of internationally educated nurses joining the UK register</span><span class="text-cyan-500">◆</span>
+      <span>🏥 23,046 registered nursing vacancies in NHS England (June 2026)</span><span class="text-cyan-500">◆</span>
+      <span>🌍 11 million projected global health-worker shortfall by 2030 (WHO)</span><span class="text-cyan-500">◆</span>
+      <span>🩺 867,935 professionals on the UK NMC register — a record</span><span class="text-cyan-500">◆</span>
+      <span>🇬🇭 Ghana: 3rd-largest source of internationally educated nurses joining the UK register</span><span class="text-cyan-500">◆</span>
+      <span>🏥 23,046 registered nursing vacancies in NHS England (June 2026)</span><span class="text-cyan-500">◆</span>
+    </div>
+  </section>
+
+  <!-- ================= INSIGHTS WRITE-UP ================= -->
+  <section id="insights" class="py-20 lg:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl reveal">
+        <p class="text-sm font-bold uppercase tracking-[.2em] text-cyan-600">Insights &middot; Healthcare in 2026</p>
+        <h2 class="mt-3 font-display text-3xl sm:text-5xl font-bold text-navy-900 leading-tight">The world needs healthcare professionals. Here's where you fit.</h2>
+        <p class="mt-5 text-lg text-slate-600 leading-relaxed">Health systems everywhere are under pressure from ageing populations, chronic disease and retiring staff. For skilled Ghanaian professionals, that creates real opportunity &mdash; and rewards those who arrive best prepared.</p>
+      </div>
+
+      <!-- Animated stat cards -->
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="reveal rounded-3xl bg-navy-900 text-white p-6">
+          <p class="font-display text-4xl font-bold"><span class="counter" data-to="11">0</span>M</p>
+          <p class="mt-2 text-sm text-slate-300">Projected global shortfall of health and care workers by 2030, according to the WHO.</p>
+        </div>
+        <div class="reveal rounded-3xl bg-white border border-slate-200 p-6">
+          <p class="font-display text-4xl font-bold text-navy-900"><span class="counter" data-to="4.1" data-dec="1">0</span>M</p>
+          <p class="mt-2 text-sm text-slate-500">Nurses still missing worldwide by 2030 &mdash; down from 5.8M in 2023, but far from solved.</p>
+        </div>
+        <div class="reveal rounded-3xl bg-white border border-slate-200 p-6">
+          <p class="font-display text-4xl font-bold text-navy-900"><span class="counter" data-to="867935">0</span></p>
+          <p class="mt-2 text-sm text-slate-500">Nurses, midwives and nursing associates on the UK NMC register &mdash; an all-time high.</p>
+        </div>
+        <div class="reveal rounded-3xl bg-gradient-to-br from-cyan-500 to-cyan-600 text-white p-6">
+          <p class="font-display text-4xl font-bold"><span class="counter" data-to="23046">0</span></p>
+          <p class="mt-2 text-sm text-cyan-50">Registered nursing vacancies in NHS England as of June 2026.</p>
+        </div>
+      </div>
+
+      <!-- Article -->
+      <div class="mt-16 grid lg:grid-cols-3 gap-12">
+        <article class="lg:col-span-2 space-y-10 text-slate-700 leading-relaxed">
+          <div class="reveal">
+            <h3 class="font-display text-2xl font-bold text-navy-900">1. The global picture</h3>
+            <p class="mt-3">The World Health Organization's 2025 <em>State of the World's Nursing</em> report found the global nursing workforce grew to nearly 30 million by 2023. Even so, the WHO still projects a shortfall of about 4.1 million nurses &mdash; and roughly 11 million health and care workers overall &mdash; by 2030. High-income countries such as the UK face ageing workforces and waves of retirement, which keeps demand for qualified professionals strong.</p>
+          </div>
+          <div class="reveal">
+            <h3 class="font-display text-2xl font-bold text-navy-900">2. The UK today</h3>
+            <p class="mt-3">The NHS is one of the world's largest employers. In June 2026, NHS England reported a registered-nursing vacancy rate of 5.3%, or just over 23,000 open posts, alongside around 100,000 vacancies across its whole workforce. The Royal College of Nursing notes that official vacancy figures understate the true gap because they exclude frozen and unfunded posts.</p>
+            <p class="mt-3">The market has also become more competitive. Vacancy rates have roughly halved since 2023, and international joiners to the nursing register fell sharply in 2025&ndash;26. In practice, that means employers can be selective &mdash; and <strong class="text-navy-900">a complete, well-presented dossier is now what separates candidates.</strong></p>
+          </div>
+          <div class="reveal">
+            <h3 class="font-display text-2xl font-bold text-navy-900">3. Ghana's place in UK healthcare</h3>
+            <p class="mt-3">Ghanaian professionals are already a major part of the UK workforce. In 2025&ndash;26, Ghana was the third-largest source of internationally educated nurses and midwives joining the NMC register, after India and Nigeria, with 1,391 new registrants.</p>
+            <p class="mt-3">Under the UK's ethical recruitment code, Ghana is a country UK employers and agencies may not actively recruit from. That code does <strong class="text-navy-900">not</strong> stop Ghanaian professionals from applying to UK employers themselves. Our role is to help you make that application as strong as it can be &mdash; documents, registration, English, interviews and family logistics.</p>
+          </div>
+          <div class="reveal">
+            <h3 class="font-display text-2xl font-bold text-navy-900">4. The UK standards you'll meet</h3>
+            <ul class="mt-4 space-y-3">
+              <li class="flex gap-3"><span class="mt-1.5 w-2 h-2 rounded-full bg-cyan-500 shrink-0"></span><span><strong class="text-navy-900">Professional registration.</strong> Every clinical role is regulated: the NMC for nurses, the GPhC for pharmacy professionals, and the HCPC for radiographers and biomedical scientists. Registration usually comes before, or alongside, your job offer.</span></li>
+              <li class="flex gap-3"><span class="mt-1.5 w-2 h-2 rounded-full bg-cyan-500 shrink-0"></span><span><strong class="text-navy-900">English language.</strong> Regulators set their own thresholds, commonly met with IELTS Academic or OET. Since January 2026, new Skilled Worker applicants must also show English at B2 level.</span></li>
+              <li class="flex gap-3"><span class="mt-1.5 w-2 h-2 rounded-full bg-cyan-500 shrink-0"></span><span><strong class="text-navy-900">Sponsorship.</strong> You need a job offer from a Home Office&ndash;licensed UK employer, who assigns your Certificate of Sponsorship (CoS) for the Health and Care Worker visa.</span></li>
+              <li class="flex gap-3"><span class="mt-1.5 w-2 h-2 rounded-full bg-cyan-500 shrink-0"></span><span><strong class="text-navy-900">Visa benefits.</strong> The Health and Care Worker visa has reduced fees, and holders and their eligible dependants are exempt from the Immigration Health Surcharge.</span></li>
+              <li class="flex gap-3"><span class="mt-1.5 w-2 h-2 rounded-full bg-cyan-500 shrink-0"></span><span><strong class="text-navy-900">Health &amp; character checks.</strong> A TB test from a UK-approved clinic and a police clearance certificate are required for you and your travelling family.</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <aside class="reveal">
+          <div class="lg:sticky lg:top-24 rounded-3xl bg-navy-900 text-white p-7">
+            <p class="text-xs font-bold uppercase tracking-[.2em] text-gold-400">Why prepare now</p>
+            <ul class="mt-5 space-y-4 text-sm text-slate-200">
+              <li class="flex gap-3"><span class="text-cyan-400 font-bold">01</span>Registration and English tests take months &mdash; starting early shortens your timeline.</li>
+              <li class="flex gap-3"><span class="text-cyan-400 font-bold">02</span>A competitive market rewards complete, UK-formatted dossiers.</li>
+              <li class="flex gap-3"><span class="text-cyan-400 font-bold">03</span>Eligible registered roles can bring a spouse and children.</li>
+              <li class="flex gap-3"><span class="text-cyan-400 font-bold">04</span>The Health and Care Worker route offers some of the UK's lowest visa costs.</li>
+            </ul>
+            <a href="#audit" class="mt-7 block text-center py-3 rounded-full bg-cyan-500 font-bold hover:bg-cyan-400 transition">Start My Audit</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ROLES ================= -->
+  <section id="roles" class="py-20 lg:py-28 bg-white border-y border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <p class="text-sm font-bold uppercase tracking-[.2em] text-cyan-600">The Roles We Support</p>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl font-bold text-navy-900">Five professions. One clear pathway each.</h2>
+        <p class="mt-4 text-slate-600">Select your field to see the UK equivalent role, the regulator, and what your dossier needs.</p>
+      </div>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-3" role="tablist" id="roleTabs">
+        <button class="role-tab px-5 py-2.5 rounded-full border-2 border-slate-200 font-semibold text-sm transition" role="tab" aria-selected="true" data-role="nurse">Nurses</button>
+        <button class="role-tab px-5 py-2.5 rounded-full border-2 border-slate-200 font-semibold text-sm transition" role="tab" aria-selected="false" data-role="pharm">Pharmacist</button>
+        <button class="role-tab px-5 py-2.5 rounded-full border-2 border-slate-200 font-semibold text-sm transition" role="tab" aria-selected="false" data-role="xray">X-Ray Tech</button>
+        <button class="role-tab px-5 py-2.5 rounded-full border-2 border-slate-200 font-semibold text-sm transition" role="tab" aria-selected="false" data-role="lab">Lab Tech</button>
+        <button class="role-tab px-5 py-2.5 rounded-full border-2 border-slate-200 font-semibold text-sm transition" role="tab" aria-selected="false" data-role="assist">Pharmacy Assistant</button>
+      </div>
+
+      <div class="mt-10 rounded-3xl bg-slate-50 border border-slate-200 p-6 sm:p-10">
+        <div class="role-panel active gap-8 md:grid-cols-3 items-start" data-panel="nurse">
+          <div class="flex flex-col items-center text-center" data-avatar="nurse"></div>
+          <div class="md:col-span-2">
+            <h3 class="font-display text-2xl font-bold text-navy-900">Registered Nurse</h3>
+            <p class="mt-1 text-sm font-semibold text-cyan-600">Regulator: Nursing &amp; Midwifery Council (NMC)</p>
+            <p class="mt-4 text-slate-600">The UK's most in-demand clinical profession. Internationally educated nurses complete the NMC's two-part test of competence &mdash; a computer-based test taken from Ghana and a practical OSCE taken in the UK.</p>
+            <div class="mt-5 grid sm:grid-cols-3 gap-3 text-sm">
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">English</p><p class="font-semibold">IELTS or OET to NMC standard</p></div>
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">Visa route</p><p class="font-semibold">Health &amp; Care Worker</p></div>
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">Dependants</p><p class="font-semibold text-emerald-600">Eligible</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="role-panel gap-8 md:grid-cols-3 items-start" data-panel="pharm">
+          <div class="flex flex-col items-center text-center" data-avatar="pharm"></div>
+          <div class="md:col-span-2">
+            <h3 class="font-display text-2xl font-bold text-navy-900">Pharmacist</h3>
+            <p class="mt-1 text-sm font-semibold text-cyan-600">Regulator: General Pharmaceutical Council (GPhC)</p>
+            <p class="mt-4 text-slate-600">Overseas-qualified pharmacists follow the GPhC's international pathway, which includes an academic programme, a foundation training year and the registration assessment. It's a longer road, but leads to a highly respected registered role.</p>
+            <div class="mt-5 grid sm:grid-cols-3 gap-3 text-sm">
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">English</p><p class="font-semibold">IELTS to GPhC standard</p></div>
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">Visa route</p><p class="font-semibold">Health &amp; Care Worker</p></div>
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">Dependants</p><p class="font-semibold text-emerald-600">Eligible</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="role-panel gap-8 md:grid-cols-3 items-start" data-panel="xray">
+          <div class="flex flex-col items-center text-center" data-avatar="xray"></div>
+          <div class="md:col-span-2">
+            <h3 class="font-display text-2xl font-bold text-navy-900">Diagnostic Radiographer</h3>
+            <p class="mt-1 text-sm font-semibold text-cyan-600">Regulator: Health &amp; Care Professions Council (HCPC)</p>
+            <p class="mt-4 text-slate-600">X-ray technologists work in the UK as diagnostic radiographers. HCPC reviews your training against UK standards of proficiency; a degree-level qualification and solid clinical experience strengthen your application.</p>
+            <div class="mt-5 grid sm:grid-cols-3 gap-3 text-sm">
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">English</p><p class="font-semibold">IELTS to HCPC standard</p></div>
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">Visa route</p><p class="font-semibold">Health &amp; Care Worker</p></div>
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">Dependants</p><p class="font-semibold text-emerald-600">Eligible</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="role-panel gap-8 md:grid-cols-3 items-start" data-panel="lab">
+          <div class="flex flex-col items-center text-center" data-avatar="lab"></div>
+          <div class="md:col-span-2">
+            <h3 class="font-display text-2xl font-bold text-navy-900">Laboratory Professional</h3>
+            <p class="mt-1 text-sm font-semibold text-cyan-600">Regulator: HCPC (Biomedical Scientists)</p>
+            <p class="mt-4 text-slate-600">Graduates can pursue registration as a biomedical scientist, with degree assessment by the Institute of Biomedical Science. Laboratory technician roles are also sponsorable but sit on the Temporary Shortage List, which does not allow dependants &mdash; we'll help you assess which path fits.</p>
+            <div class="mt-5 grid sm:grid-cols-3 gap-3 text-sm">
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">English</p><p class="font-semibold">IELTS to HCPC standard</p></div>
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">Visa route</p><p class="font-semibold">Health &amp; Care Worker</p></div>
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">Dependants</p><p class="font-semibold text-gold-600">Depends on role</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="role-panel gap-8 md:grid-cols-3 items-start" data-panel="assist">
+          <div class="flex flex-col items-center text-center" data-avatar="assist"></div>
+          <div class="md:col-span-2">
+            <h3 class="font-display text-2xl font-bold text-navy-900">Pharmacy Support Roles</h3>
+            <p class="mt-1 text-sm font-semibold text-cyan-600">Regulator: GPhC (Pharmacy Technicians)</p>
+            <p class="mt-4 text-slate-600">In the UK, registered pharmacy technicians need a UK-recognised qualification, and many assistant roles fall below the visa skill threshold. Our audit maps your experience to the strongest available route, including upskilling options.</p>
+            <div class="mt-5 grid sm:grid-cols-3 gap-3 text-sm">
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">English</p><p class="font-semibold">IELTS / B2 standard</p></div>
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">Visa route</p><p class="font-semibold">Assessed individually</p></div>
+              <div class="rounded-xl bg-white border border-slate-200 p-3"><p class="text-xs text-slate-400">Dependants</p><p class="font-semibold text-gold-600">Depends on route</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DOSSIER AUDIT ================= -->
+  <section id="audit" class="py-20 lg:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-4 lg:sticky lg:top-24 reveal">
+          <p class="text-sm font-bold uppercase tracking-[.2em] text-cyan-600">Eligibility &amp; Document Audit</p>
+          <h2 class="mt-3 font-display text-3xl sm:text-4xl font-bold text-navy-900">Cross off the 7 Core Requirements.</h2>
+          <p class="mt-4 text-slate-600">Tap each document you already hold. Your readiness carries straight into your application.</p>
+          <div class="mt-8 rounded-3xl bg-navy-900 p-7 text-white shadow-xl">
+            <div class="flex items-center gap-6">
+              <svg width="112" height="112" viewBox="0 0 120 120" class="-rotate-90 shrink-0" aria-hidden="true">
+                <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="10"/>
+                <circle id="ringFill" cx="60" cy="60" r="50" fill="none" stroke="#0EA5E9" stroke-width="10" stroke-linecap="round" stroke-dasharray="314.16" stroke-dashoffset="314.16" class="ring-fill"/>
+              </svg>
+              <div>
+                <p class="text-xs uppercase tracking-wider text-slate-400">Dossier Readiness</p>
+                <p class="font-display text-4xl font-bold"><span id="pct">0</span>%</p>
+                <p id="pctMsg" class="mt-1 text-sm text-cyan-300">Start by ticking what you have.</p>
+              </div>
+            </div>
+            <div class="mt-6 h-2.5 rounded-full bg-white/10 overflow-hidden"><div id="barFill" class="h-full w-0 rounded-full bg-gradient-to-r from-cyan-500 to-gold-400 transition-all duration-500"></div></div>
+            <a href="#apply" class="mt-6 block text-center py-3 rounded-full bg-gold-500 text-navy-900 font-bold hover:bg-gold-400 transition">Continue to Application</a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-8 grid sm:grid-cols-2 gap-4" id="reqGrid">
+          <button type="button" class="req text-left rounded-2xl border-2 border-slate-200 bg-white p-5 hover:border-cyan-400 hover:shadow-md transition" data-doc="Passport" data-done="false" aria-pressed="false">
+            <div class="flex items-center gap-4"><span class="req-box w-8 h-8 rounded-lg border-2 border-slate-300 flex items-center justify-center text-transparent transition"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><div><p class="text-xs font-bold text-slate-400">01</p><p class="req-title font-semibold text-navy-900">Passport</p></div></div>
+            <p class="mt-3 text-sm text-slate-500">Valid biometric passport with ample validity remaining.</p>
+            <span class="req-tag mt-3 inline-block text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-500">Pending</span>
+          </button>
+          <button type="button" class="req text-left rounded-2xl border-2 border-slate-200 bg-white p-5 hover:border-cyan-400 hover:shadow-md transition" data-doc="Professional CV" data-done="false" aria-pressed="false">
+            <div class="flex items-center gap-4"><span class="req-box w-8 h-8 rounded-lg border-2 border-slate-300 flex items-center justify-center text-transparent transition"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><div><p class="text-xs font-bold text-slate-400">02</p><p class="req-title font-semibold text-navy-900">Professional CV</p></div></div>
+            <p class="mt-3 text-sm text-slate-500">Up-to-date CV covering clinical experience and specialties.</p>
+            <span class="req-tag mt-3 inline-block text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-500">Pending</span>
+          </button>
+          <button type="button" class="req text-left rounded-2xl border-2 border-slate-200 bg-white p-5 hover:border-cyan-400 hover:shadow-md transition" data-doc="English Test (IELTS/OET/ECCTIS)" data-done="false" aria-pressed="false">
+            <div class="flex items-center gap-4"><span class="req-box w-8 h-8 rounded-lg border-2 border-slate-300 flex items-center justify-center text-transparent transition"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><div><p class="text-xs font-bold text-slate-400">03</p><p class="req-title font-semibold text-navy-900">English Test</p></div></div>
+            <p class="mt-3 text-sm text-slate-500">IELTS, OET or ECCTIS result meeting your regulator's standard.</p>
+            <span class="req-tag mt-3 inline-block text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-500">Pending</span>
+          </button>
+          <button type="button" class="req text-left rounded-2xl border-2 border-slate-200 bg-white p-5 hover:border-cyan-400 hover:shadow-md transition" data-doc="Qualifications" data-done="false" aria-pressed="false">
+            <div class="flex items-center gap-4"><span class="req-box w-8 h-8 rounded-lg border-2 border-slate-300 flex items-center justify-center text-transparent transition"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><div><p class="text-xs font-bold text-slate-400">04</p><p class="req-title font-semibold text-navy-900">Qualifications</p></div></div>
+            <p class="mt-3 text-sm text-slate-500">Degree or diploma certificates plus current Ghanaian licence.</p>
+            <span class="req-tag mt-3 inline-block text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-500">Pending</span>
+          </button>
+          <button type="button" class="req text-left rounded-2xl border-2 border-slate-200 bg-white p-5 hover:border-cyan-400 hover:shadow-md transition" data-doc="Transcripts" data-done="false" aria-pressed="false">
+            <div class="flex items-center gap-4"><span class="req-box w-8 h-8 rounded-lg border-2 border-slate-300 flex items-center justify-center text-transparent transition"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><div><p class="text-xs font-bold text-slate-400">05</p><p class="req-title font-semibold text-navy-900">Transcripts</p></div></div>
+            <p class="mt-3 text-sm text-slate-500">Official academic transcripts from your training institution.</p>
+            <span class="req-tag mt-3 inline-block text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-500">Pending</span>
+          </button>
+          <button type="button" class="req text-left rounded-2xl border-2 border-slate-200 bg-white p-5 hover:border-cyan-400 hover:shadow-md transition" data-doc="Police Clearance" data-done="false" aria-pressed="false">
+            <div class="flex items-center gap-4"><span class="req-box w-8 h-8 rounded-lg border-2 border-slate-300 flex items-center justify-center text-transparent transition"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><div><p class="text-xs font-bold text-slate-400">06</p><p class="req-title font-semibold text-navy-900">Police Clearance</p></div></div>
+            <p class="mt-3 text-sm text-slate-500">Ghana Police Service criminal record certificate.</p>
+            <span class="req-tag mt-3 inline-block text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-500">Pending</span>
+          </button>
+          <button type="button" class="req text-left rounded-2xl border-2 border-slate-200 bg-white p-5 hover:border-cyan-400 hover:shadow-md transition sm:col-span-2" data-doc="TB Test" data-done="false" aria-pressed="false">
+            <div class="flex items-center gap-4"><span class="req-box w-8 h-8 rounded-lg border-2 border-slate-300 flex items-center justify-center text-transparent transition"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><div><p class="text-xs font-bold text-slate-400">07</p><p class="req-title font-semibold text-navy-900">TB Test</p></div></div>
+            <p class="mt-3 text-sm text-slate-500">Tuberculosis screening certificate from a UK Home Office&ndash;approved clinic, for you and each family member travelling.</p>
+            <span class="req-tag mt-3 inline-block text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-500">Pending</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ROADMAP ================= -->
+  <section id="roadmap" class="py-20 lg:py-28 bg-white border-y border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <p class="text-sm font-bold uppercase tracking-[.2em] text-cyan-600">The 4-Step Roadmap</p>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl font-bold text-navy-900">A structured path from Accra to arrival.</h2>
+        <p class="mt-4 text-slate-600">Select a stage to see what happens, what you provide, and what we deliver.</p>
+      </div>
+      <div class="relative mt-14" role="tablist" aria-label="Relocation roadmap">
+        <div class="absolute left-[12.5%] right-[12.5%] top-7 h-1 bg-slate-200 rounded hidden sm:block"></div>
+        <div id="progressLine" class="absolute left-[12.5%] top-7 h-1 bg-cyan-500 rounded hidden sm:block transition-all duration-500" style="width:0%"></div>
+        <div class="relative grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <button class="step-btn flex flex-col items-center text-center group" role="tab" aria-selected="true" data-step="1"><span class="step-dot w-14 h-14 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center font-display font-bold text-xl text-slate-500 transition">1</span><span class="step-label mt-3 text-sm font-semibold text-slate-500 group-hover:text-navy-900 transition">Intake &amp; Audit</span></button>
+          <button class="step-btn flex flex-col items-center text-center group" role="tab" aria-selected="false" data-step="2"><span class="step-dot w-14 h-14 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center font-display font-bold text-xl text-slate-500 transition">2</span><span class="step-label mt-3 text-sm font-semibold text-slate-500 group-hover:text-navy-900 transition">Mobilization</span></button>
+          <button class="step-btn flex flex-col items-center text-center group" role="tab" aria-selected="false" data-step="3"><span class="step-dot w-14 h-14 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center font-display font-bold text-xl text-slate-500 transition">3</span><span class="step-label mt-3 text-sm font-semibold text-slate-500 group-hover:text-navy-900 transition">Interview Matching</span></button>
+          <button class="step-btn flex flex-col items-center text-center group" role="tab" aria-selected="false" data-step="4"><span class="step-dot w-14 h-14 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center font-display font-bold text-xl text-slate-500 transition">4</span><span class="step-label mt-3 text-sm font-semibold text-slate-500 group-hover:text-navy-900 transition">CoS Issuance</span></button>
+        </div>
+      </div>
+      <div class="mt-12 rounded-3xl bg-navy-900 text-white p-8 sm:p-10 shadow-xl min-h-[280px]">
+        <div class="step-panel active">
+          <p class="text-cyan-300 text-sm font-bold uppercase tracking-wider">Step 1</p>
+          <h3 class="mt-2 font-display text-2xl sm:text-3xl font-bold">Intake &amp; Audit</h3>
+          <p class="mt-4 text-slate-300 max-w-3xl leading-relaxed">You submit your application and documents. Our advisors review your profession, experience and paperwork against UK route requirements and return a written gap report.</p>
+          <div class="mt-6 grid sm:grid-cols-3 gap-4">
+            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><p class="text-xs text-slate-400 uppercase tracking-wider">You provide</p><p class="mt-1 text-sm">Application form and your 7 core documents</p></div>
+            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><p class="text-xs text-slate-400 uppercase tracking-wider">We deliver</p><p class="mt-1 text-sm">Eligibility review and personalised gap report</p></div>
+            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><p class="text-xs text-slate-400 uppercase tracking-wider">Outcome</p><p class="mt-1 text-sm">A clear action list for your dossier</p></div>
+          </div>
+        </div>
+        <div class="step-panel">
+          <p class="text-cyan-300 text-sm font-bold uppercase tracking-wider">Step 2</p>
+          <h3 class="mt-2 font-display text-2xl sm:text-3xl font-bold">Mobilization</h3>
+          <p class="mt-4 text-slate-300 max-w-3xl leading-relaxed">We help you close every gap: English test preparation, UK-format CV rewriting, credential verification and step-by-step guidance through your NMC, GPhC or HCPC registration.</p>
+          <div class="mt-6 grid sm:grid-cols-3 gap-4">
+            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><p class="text-xs text-slate-400 uppercase tracking-wider">You provide</p><p class="mt-1 text-sm">Test bookings, certified copies, registration forms</p></div>
+            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><p class="text-xs text-slate-400 uppercase tracking-wider">We deliver</p><p class="mt-1 text-sm">Checklists, CV rework, regulator guidance</p></div>
+            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><p class="text-xs text-slate-400 uppercase tracking-wider">Outcome</p><p class="mt-1 text-sm">A complete, interview-ready dossier</p></div>
+          </div>
+        </div>
+        <div class="step-panel">
+          <p class="text-cyan-300 text-sm font-bold uppercase tracking-wider">Step 3</p>
+          <h3 class="mt-2 font-display text-2xl sm:text-3xl font-bold">Interview Matching</h3>
+          <p class="mt-4 text-slate-300 max-w-3xl leading-relaxed">With your dossier complete, we prepare you for UK clinical interviews through mock sessions, competency-question coaching and NHS values training, and coordinate interview scheduling with our UK partner network.</p>
+          <div class="mt-6 grid sm:grid-cols-3 gap-4">
+            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><p class="text-xs text-slate-400 uppercase tracking-wider">You provide</p><p class="mt-1 text-sm">Availability and role preferences</p></div>
+            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><p class="text-xs text-slate-400 uppercase tracking-wider">We deliver</p><p class="mt-1 text-sm">Mock interviews and scheduling support</p></div>
+            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><p class="text-xs text-slate-400 uppercase tracking-wider">Outcome</p><p class="mt-1 text-sm">Confident interviews and a written job offer</p></div>
+          </div>
+        </div>
+        <div class="step-panel">
+          <p class="text-cyan-300 text-sm font-bold uppercase tracking-wider">Step 4</p>
+          <h3 class="mt-2 font-display text-2xl sm:text-3xl font-bold">CoS Issuance</h3>
+          <p class="mt-4 text-slate-300 max-w-3xl leading-relaxed">Once you accept an offer, your UK employer &mdash; a Home Office&ndash;licensed sponsor &mdash; assigns your Certificate of Sponsorship. We then guide you and your family through visa applications, TB screening, biometrics and travel.</p>
+          <div class="mt-6 grid sm:grid-cols-3 gap-4">
+            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><p class="text-xs text-slate-400 uppercase tracking-wider">You provide</p><p class="mt-1 text-sm">Signed offer and family documents</p></div>
+            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><p class="text-xs text-slate-400 uppercase tracking-wider">We deliver</p><p class="mt-1 text-sm">Visa file checks and pre-departure briefing</p></div>
+            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><p class="text-xs text-slate-400 uppercase tracking-wider">Outcome</p><p class="mt-1 text-sm">Visa lodged and travel planned</p></div>
+          </div>
+        </div>
+        <div class="mt-8 flex items-center justify-between">
+          <button id="prevStep" class="px-5 py-2.5 rounded-full border border-white/20 text-sm font-semibold hover:border-cyan-400 transition disabled:opacity-30" disabled>&larr; Previous</button>
+          <button id="nextStep" class="px-5 py-2.5 rounded-full bg-cyan-500 text-white text-sm font-bold hover:bg-cyan-400 transition">Next Stage &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ECOSYSTEM ================= -->
+  <section id="ecosystem" class="py-20 lg:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <p class="text-sm font-bold uppercase tracking-[.2em] text-cyan-600">The Lifeline Internal Ecosystem</p>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl font-bold text-navy-900">Two specialist wings. One complete dossier.</h2>
+      </div>
+      <div class="relative mt-14 grid md:grid-cols-2 gap-6">
+        <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-gold-500 text-navy-900 items-center justify-center shadow-xl border-4 border-slate-50">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.8" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+        <article class="reveal rounded-3xl border border-slate-200 bg-white p-8 hover:shadow-xl transition">
+          <div class="flex items-center gap-4">
+            <span class="w-14 h-14 rounded-2xl bg-navy-900 flex items-center justify-center"><svg width="26" height="26" fill="none" stroke="#38BDF8" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l9-4 9 4-9 4-9-4z"/><path d="M7 10v5c0 1.7 2.2 3 5 3s5-1.3 5-3v-5"/><path d="M21 8v6"/></svg></span>
+            <div><p class="text-xs font-bold uppercase tracking-wider text-cyan-600">Card A &middot; Preparation</p><h3 class="font-display text-xl font-bold text-navy-900">Lifeline Academic Support Services</h3></div>
+          </div>
+          <ul class="mt-6 space-y-3 text-slate-600">
+            <li class="flex gap-3"><span class="text-cyan-500 font-bold">&#10003;</span>Optimises professional CV structures to UK healthcare format</li>
+            <li class="flex gap-3"><span class="text-cyan-500 font-bold">&#10003;</span>Drafts and edits statements of purpose and personal statements</li>
+            <li class="flex gap-3"><span class="text-cyan-500 font-bold">&#10003;</span>Maps transcripts and qualifications to regulator requirements</li>
+          </ul>
+        </article>
+        <article class="reveal rounded-3xl border border-slate-200 bg-navy-900 text-white p-8 hover:shadow-xl transition">
+          <div class="flex items-center gap-4">
+            <span class="w-14 h-14 rounded-2xl bg-cyan-500 flex items-center justify-center"><svg width="26" height="26" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M2 16l20-6-5-2-6 3-4-2-2 1 3 3-4 2z"/><path d="M3 20h18"/></svg></span>
+            <div><p class="text-xs font-bold uppercase tracking-wider text-cyan-300">Card B &middot; Routing</p><h3 class="font-display text-xl font-bold">Lifeline Travel Consult</h3></div>
+          </div>
+          <ul class="mt-6 space-y-3 text-slate-300">
+            <li class="flex gap-3"><span class="text-gold-400 font-bold">&#10003;</span>Manages secure file routing and dossier version control</li>
+            <li class="flex gap-3"><span class="text-gold-400 font-bold">&#10003;</span>Coordinates interview scheduling with our UK partner network</li>
+            <li class="flex gap-3"><span class="text-gold-400 font-bold">&#10003;</span>Handles visa application logistics, TB screening, flights and arrival</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Standards grid -->
+      <div class="mt-20 reveal">
+        <p class="text-center text-sm font-bold uppercase tracking-[.2em] text-slate-400">Standards our dossiers are prepared against</p>
+        <div class="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div class="rounded-2xl bg-white border border-slate-200 p-5 text-center"><p class="font-display font-bold text-slate-700">NMC</p><p class="mt-1 text-[11px] text-slate-400">Nursing &amp; Midwifery</p></div>
+          <div class="rounded-2xl bg-white border border-slate-200 p-5 text-center"><p class="font-display font-bold text-slate-700">GPhC</p><p class="mt-1 text-[11px] text-slate-400">Pharmacy</p></div>
+          <div class="rounded-2xl bg-white border border-slate-200 p-5 text-center"><p class="font-display font-bold text-slate-700">HCPC</p><p class="mt-1 text-[11px] text-slate-400">Radiography &amp; Biomedical</p></div>
+          <div class="rounded-2xl bg-white border border-slate-200 p-5 text-center"><p class="font-display font-bold text-slate-700">UKVI</p><p class="mt-1 text-[11px] text-slate-400">Health &amp; Care Worker visa</p></div>
+          <div class="rounded-2xl bg-white border border-slate-200 p-5 text-center"><p class="font-display font-bold text-slate-700">ECCTIS</p><p class="mt-1 text-[11px] text-slate-400">Qualification recognition</p></div>
+          <div class="rounded-2xl bg-white border border-slate-200 p-5 text-center"><p class="font-display font-bold text-slate-700">IELTS / OET</p><p class="mt-1 text-[11px] text-slate-400">English testing</p></div>
+        </div>
+        <p class="mt-5 text-center text-xs text-slate-400">Listed bodies are the UK requirements we prepare documents to meet. Listing does not imply endorsement by or affiliation with these organisations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= APPLICATION FORM ================= -->
+  <section id="apply" class="relative py-20 lg:py-28 bg-navy-900 overflow-hidden">
+    <div class="absolute inset-0 grid-bg opacity-70"></div>
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[420px] rounded-full bg-cyan-500/15 blur-3xl"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-5 gap-10 items-start">
+      <div class="lg:col-span-2 text-white">
+        <p class="text-sm font-bold uppercase tracking-[.2em] text-cyan-300">Application</p>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl font-bold">Lock in your eligibility check.</h2>
+        <p class="mt-4 text-slate-300 leading-relaxed">Submit before the portal closes to receive a personal eligibility review and the full pricing framework &mdash; partner process, timelines and next steps &mdash; directly from an advisor.</p>
+        <div class="mt-8 space-y-4">
+          <div class="flex gap-4 items-start"><span class="w-10 h-10 shrink-0 rounded-xl bg-white/10 flex items-center justify-center font-bold text-cyan-300">1</span><p class="text-slate-300 pt-2">Submit your details and document status</p></div>
+          <div class="flex gap-4 items-start"><span class="w-10 h-10 shrink-0 rounded-xl bg-white/10 flex items-center justify-center font-bold text-cyan-300">2</span><p class="text-slate-300 pt-2">An advisor reviews your profile in order of arrival</p></div>
+          <div class="flex gap-4 items-start"><span class="w-10 h-10 shrink-0 rounded-xl bg-white/10 flex items-center justify-center font-bold text-cyan-300">3</span><p class="text-slate-300 pt-2">Receive your eligibility outcome and full framework</p></div>
+        </div>
+        <div class="mt-10 rounded-2xl bg-white/5 border border-white/10 p-5">
+          <p class="text-xs uppercase tracking-wider text-slate-400">Time on this page</p>
+          <p id="sessTime2" class="font-display text-3xl font-bold tabular-nums text-gold-300">00:00</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3">
+        <form id="applyForm" class="rounded-3xl bg-white p-6 sm:p-10 shadow-2xl" novalidate>
+          <div class="flex items-center justify-between">
+            <h3 class="font-display text-xl font-bold text-navy-900">Eligibility Application</h3>
+            <span class="text-xs font-bold px-3 py-1 rounded-full bg-gold-300 text-navy-900">Q1/Q2 Intake</span>
+          </div>
+          <div class="mt-6 grid sm:grid-cols-2 gap-5">
+            <div class="sm:col-span-2">
+              <label for="fName" class="block text-sm font-semibold text-navy-900">Full Name <span class="text-cyan-600">*</span></label>
+              <input id="fName" name="fName" type="text" autocomplete="name" placeholder="e.g. Kwame Asante Boateng" class="mt-2 w-full rounded-xl border-2 border-slate-200 px-4 py-3 focus:outline-none focus:border-cyan-500 transition" />
+              <p class="err hidden mt-1 text-xs text-red-600">Please enter your full name.</p>
+            </div>
+            <div>
+              <label for="fEmail" class="block text-sm font-semibold text-navy-900">Email Address <span class="text-cyan-600">*</span></label>
+              <input id="fEmail" name="fEmail" type="email" autocomplete="email" placeholder="you@example.com" class="mt-2 w-full rounded-xl border-2 border-slate-200 px-4 py-3 focus:outline-none focus:border-cyan-500 transition" />
+              <p class="err hidden mt-1 text-xs text-red-600">Please enter a valid email.</p>
+            </div>
+            <div>
+              <label for="fPhone" class="block text-sm font-semibold text-navy-900">Phone / WhatsApp <span class="text-cyan-600">*</span></label>
+              <input id="fPhone" name="fPhone" type="tel" autocomplete="tel" placeholder="+233 24 000 0000" class="mt-2 w-full rounded-xl border-2 border-slate-200 px-4 py-3 focus:outline-none focus:border-cyan-500 transition" />
+              <p class="err hidden mt-1 text-xs text-red-600">Please enter a valid phone number.</p>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="fField" class="block text-sm font-semibold text-navy-900">Current Health Field <span class="text-cyan-600">*</span></label>
+              <select id="fField" name="fField" class="mt-2 w-full rounded-xl border-2 border-slate-200 px-4 py-3 bg-white focus:outline-none focus:border-cyan-500 transition">
+                <option value="">Select your field</option>
+                <option value="Nurses">Nurses</option>
+                <option value="Lab Tech">Lab Tech</option>
+                <option value="Pharmacist">Pharmacist</option>
+                <option value="Pharmacy Assistant">Pharmacy Assistant</option>
+                <option value="X-Ray Tech">X-Ray Tech</option>
+              </select>
+              <p class="err hidden mt-1 text-xs text-red-600">Please select your health field.</p>
+            </div>
+          </div>
+
+          <fieldset class="mt-7">
+            <legend class="text-sm font-semibold text-navy-900">Documents ready <span class="font-normal text-slate-500">(synced with your audit)</span></legend>
+            <div id="formChecks" class="mt-3 grid sm:grid-cols-2 gap-2.5"></div>
+          </fieldset>
+
+          <label class="mt-6 flex items-start gap-3 rounded-xl border-2 border-slate-200 p-4 cursor-pointer hover:border-cyan-400 transition">
+            <input id="fDeps" type="checkbox" class="mt-1 w-5 h-5 accent-sky-500" />
+            <span>
+              <span class="block text-sm font-semibold text-navy-900">I wish to relocate with legal dependents (Spouse/Children).</span>
+              <span class="block mt-0.5 text-xs text-slate-500">Dependant eligibility depends on your role; we confirm it in your eligibility check.</span>
+            </span>
+          </label>
+
+          <label class="mt-5 flex items-start gap-3 text-sm text-slate-600 cursor-pointer">
+            <input id="fConsent" type="checkbox" class="mt-1 w-4 h-4 accent-sky-500" />
+            <span>I agree that Lifeline Travel Consult may contact me about this application and store my details for that purpose.</span>
+          </label>
+          <p id="consentErr" class="hidden mt-1 text-xs text-red-600">Please confirm consent to continue.</p>
+
+          <button type="submit" class="mt-7 w-full inline-flex justify-center items-center gap-2 py-4 rounded-full bg-cyan-500 text-white font-bold text-base sm:text-lg hover:bg-cyan-600 transition shadow-lg shadow-cyan-500/30">
+            Submit &amp; Request Full Pricing Framework
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="mt-3 text-center text-xs font-semibold text-slate-500">&#128274; Submitting also locks in your eligibility check.</p>
+          <p class="mt-2 text-center text-xs text-slate-400">Your details are kept confidential and never sold to third parties.</p>
+        </form>
+
+        <div id="successCard" class="hidden rounded-3xl bg-white p-10 text-center shadow-2xl">
+          <span class="mx-auto w-16 h-16 rounded-full bg-cyan-500 flex items-center justify-center"><svg width="30" height="30" fill="none" stroke="#fff" stroke-width="3" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>
+          <h3 class="mt-6 font-display text-2xl font-bold text-navy-900">Thank you, <span id="okName"></span>.</h3>
+          <p class="mt-3 text-slate-600">Your email app has opened with your application details. Press send so our advisors receive it, and we'll be in touch with your eligibility outcome.</p>
+          <p class="mt-3 text-sm text-slate-500">If nothing opened, email <a id="okEmail" class="text-cyan-600 font-semibold underline" href="#"></a>.</p>
+          <button id="againBtn" type="button" class="mt-7 px-6 py-3 rounded-full border-2 border-navy-900 font-semibold hover:bg-navy-900 hover:text-white transition">Submit another application</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-navy-950 text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid md:grid-cols-3 gap-10">
+      <div>
+        <p class="font-display text-white text-xl font-bold">Lifeline Travel Consult</p>
+        <p class="text-sm text-gold-300">We Plan, You Explore</p>
+        <p class="mt-3 text-sm">A Lifeline Services company within the Lifeline Group of Companies.</p>
+        <a id="footEmail" href="#" class="mt-3 inline-block text-sm text-cyan-300 hover:text-cyan-200"></a>
+      </div>
+      <div class="text-xs leading-relaxed">
+        <p class="text-white font-semibold text-sm mb-2">Data sources</p>
+        <ul class="space-y-1.5">
+          <li><a class="hover:text-cyan-300 underline underline-offset-2" href="https://www.who.int/teams/health-workforce/nursing" target="_blank" rel="noopener">WHO — Health workforce &amp; State of the World's Nursing 2025</a></li>
+          <li><a class="hover:text-cyan-300 underline underline-offset-2" href="https://digital.nhs.uk/data-and-information/publications/statistical/nhs-vacancies-survey" target="_blank" rel="noopener">NHS England — Vacancy Statistics (June 2026)</a></li>
+          <li><a class="hover:text-cyan-300 underline underline-offset-2" href="https://www.nmc.org.uk/about-us/reports-and-accounts/registration-statistics/" target="_blank" rel="noopener">NMC — Annual registration data report 2025–26</a></li>
+          <li><a class="hover:text-cyan-300 underline underline-offset-2" href="https://www.nhsemployers.org/articles/uk-immigration-policy-latest-updates-and-employer-implications" target="_blank" rel="noopener">NHS Employers — UK immigration policy updates</a></li>
+        </ul>
+      </div>
+      <div class="text-xs leading-relaxed">
+        <p class="text-white font-semibold text-sm mb-2">About this program</p>
+        <p>Lifeline Travel Consult provides educational, administrative and logistics support. Certificates of Sponsorship are assigned only by UK employers holding a Home Office sponsor licence, and all visa decisions are made by UK Visas and Immigration.</p>
+      </div>
+    </div>
+    <div class="border-t border-white/5 py-5 text-center text-xs">&copy; <span id="year"></span> Lifeline Travel Consult &middot; Lifeline Group of Companies. All rights reserved.</div>
+  </footer>
+
+  <!-- Sticky session pill -->
+  <a id="stickyPill" href="#apply" class="fixed bottom-5 right-5 z-40 hidden items-center gap-3 rounded-full bg-navy-900 text-white pl-4 pr-2 py-2 shadow-2xl border border-white/10 hover:bg-navy-800 transition">
+    <span class="relative flex w-2.5 h-2.5"><span class="absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75 animate-ping"></span><span class="relative inline-flex rounded-full w-2.5 h-2.5 bg-cyan-400"></span></span>
+    <span class="text-sm"><span class="text-slate-400">On page</span> <span id="pillTime" class="font-semibold tabular-nums">00:00</span></span>
+    <span class="rounded-full bg-gold-500 text-navy-900 font-bold text-sm px-4 py-2">Apply Now</span>
+  </a>
+
+  <script>
+    /* ============ SITE CONFIG — edit these values ============ */
+    var CONFIG = {
+      // Real closing date of the current intake window (ISO, UTC/GMT).
+      intakeDeadline: '2026-12-31T23:59:59Z',
+      email: 'lbconsultancy@163.com',
+      // Optional: path to your own b-roll video (e.g. 'broll.mp4'). Leave '' to use the animated route scene.
+      heroVideo: '',
+      // Set to false if applications are NOT reviewed first-come, first-served.
+      reviewInOrderOfArrival: true
+    };
+
+    (function () {
+      // ---------- Mobile menu ----------
+      var menuBtn = document.getElementById('menuBtn'), mobileMenu = document.getElementById('mobileMenu');
+      menuBtn.addEventListener('click', function () { var open = mobileMenu.classList.toggle('hidden') === false; menuBtn.setAttribute('aria-expanded', String(open)); });
+      mobileMenu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { mobileMenu.classList.add('hidden'); }); });
+
+      // ---------- Config bindings ----------
+      ['okEmail', 'footEmail'].forEach(function (id) { var el = document.getElementById(id); el.textContent = CONFIG.email; el.href = 'mailto:' + CONFIG.email; });
+      document.getElementById('year').textContent = new Date().getFullYear();
+      if (!CONFIG.reviewInOrderOfArrival) document.getElementById('orderNote').remove();
+      if (CONFIG.heroVideo) {
+        var wrap = document.getElementById('brollWrap');
+        var v = document.createElement('video');
+        v.src = CONFIG.heroVideo; v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
+        v.className = 'absolute inset-0 w-full h-full object-cover';
+        v.onerror = function () { v.remove(); };
+        wrap.insertBefore(v, wrap.firstChild);
+        document.getElementById('brollSvg').style.display = 'none';
+      }
+
+      // ---------- Illustrated profession avatars ----------
+      var AVATARS = {
+        nurse:  { skin: '#8D5524', scrub: '#0EA5E9', hair: '#1B1B1B', icon: '<path d="M-5 0h10M0-5v10" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>', label: 'Nurse' },
+        pharm:  { skin: '#6B3E26', scrub: '#10B981', hair: '#111', icon: '<rect x="-6" y="-3" width="12" height="6" rx="3" fill="#fff"/><path d="M0-3v6" stroke="#10B981" stroke-width="1.5"/>', label: 'Pharmacist' },
+        xray:   { skin: '#A0673C', scrub: '#6366F1', hair: '#222', icon: '<circle r="2" fill="#fff"/><path d="M0-6.5a6.5 6.5 0 0 1 5.6 3.2M5.6 3.2A6.5 6.5 0 0 1-5.6 3.2M-5.6 3.2A6.5 6.5 0 0 1 0-6.5" stroke="#fff" stroke-width="2" fill="none"/>', label: 'Radiographer' },
+        lab:    { skin: '#7A4A2A', scrub: '#F5C84C', hair: '#0d0d0d', icon: '<path d="M-2-6h4M-1-6v4l-4 7h10l-4-7v-4" stroke="#0F172A" stroke-width="1.8" fill="none" stroke-linejoin="round"/>', label: 'Lab Scientist' },
+        assist: { skin: '#5C3317', scrub: '#EC4899', hair: '#151515', icon: '<path d="M-5 2l5-5 5 5M0-3v8" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>', label: 'Pharmacy Support' }
+      };
+      function avatarSVG(a, size) {
+        return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 80 80" role="img" aria-label="Illustration of a ' + a.label + '">' +
+          '<circle cx="40" cy="40" r="40" fill="#E0F2FE"/>' +
+          '<clipPath id="c' + a.label.replace(/\s/g,'') + size + '"><circle cx="40" cy="40" r="40"/></clipPath>' +
+          '<g clip-path="url(#c' + a.label.replace(/\s/g,'') + size + ')">' +
+          '<path d="M10 82c2-17 14-26 30-26s28 9 30 26z" fill="' + a.scrub + '"/>' +
+          '<path d="M33 56l7 9 7-9" fill="#fff" opacity=".85"/>' +
+          '<rect x="34" y="44" width="12" height="12" rx="4" fill="' + a.skin + '"/>' +
+          '<ellipse cx="40" cy="34" rx="13" ry="15" fill="' + a.skin + '"/>' +
+          '<path d="M27 32c0-11 6-16 13-16s13 5 13 16c-3-5-7-7-13-7s-10 2-13 7z" fill="' + a.hair + '"/>' +
+          '<circle cx="35" cy="35" r="1.4" fill="#111"/><circle cx="45" cy="35" r="1.4" fill="#111"/>' +
+          '<path d="M36 41q4 3 8 0" stroke="#111" stroke-width="1.4" fill="none" stroke-linecap="round"/>' +
+          '</g>' +
+          '<g transform="translate(64,64)"><circle r="11" fill="' + a.scrub + '" stroke="#fff" stroke-width="2.5"/>' + a.icon + '</g>' +
+          '</svg>';
+      }
+      var stack = document.getElementById('avatarStack');
+      Object.keys(AVATARS).forEach(function (k) {
+        var s = document.createElement('span');
+        s.className = 'rounded-full ring-4 ring-navy-900 bg-navy-900';
+        s.innerHTML = avatarSVG(AVATARS[k], 48);
+        stack.appendChild(s);
+      });
+      document.querySelectorAll('[data-avatar]').forEach(function (el) {
+        var a = AVATARS[el.dataset.avatar];
+        el.innerHTML = '<div class="rounded-full p-2 bg-white shadow-lg">' + avatarSVG(a, 150) + '</div><p class="mt-3 text-sm font-semibold text-slate-500">' + a.label + '</p>';
+      });
+
+      // ---------- Role tabs ----------
+      var roleTabs = document.querySelectorAll('.role-tab'), rolePanels = document.querySelectorAll('.role-panel');
+      roleTabs.forEach(function (t) {
+        t.addEventListener('click', function () {
+          roleTabs.forEach(function (x) { x.setAttribute('aria-selected', String(x === t)); });
+          rolePanels.forEach(function (p) { p.classList.toggle('active', p.dataset.panel === t.dataset.role); });
+        });
+      });
+
+      // ---------- Session timer ----------
+      var start = Date.now();
+      var sessEls = [document.getElementById('sessTime'), document.getElementById('sessTime2'), document.getElementById('pillTime')];
+      var sessRing = document.getElementById('sessRing'), sessMsg = document.getElementById('sessMsg');
+      var SESS_MSGS = [
+        { at: 0,   text: 'Welcome. The 7-point dossier audit takes about 3 minutes — start whenever you\'re ready.' },
+        { at: 60,  text: 'Good progress. Tick off your documents in the audit to see your Dossier Readiness score.' },
+        { at: 180, text: 'You\'ve done your research. Submitting now places your application in the review queue today.' },
+        { at: 420, text: 'Still exploring? Your advisor can answer remaining questions — the quickest way is to submit your application.' }
+      ];
+      function fmt(sec) { var m = Math.floor(sec / 60), s = sec % 60; return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s; }
+      function sessionTick() {
+        var sec = Math.floor((Date.now() - start) / 1000);
+        sessEls.forEach(function (el) { el.textContent = fmt(sec); });
+        sessRing.style.strokeDashoffset = 263.9 - 263.9 * ((sec % 60) / 60);
+        var msg = SESS_MSGS[0].text;
+        SESS_MSGS.forEach(function (m) { if (sec >= m.at) msg = m.text; });
+        if (sessMsg.textContent !== msg) sessMsg.textContent = msg;
+      }
+      sessionTick(); setInterval(sessionTick, 1000);
+
+      // Sticky pill visibility (hidden at top and on the form itself)
+      var pill = document.getElementById('stickyPill'), applySec = document.getElementById('apply');
+      function pillCheck() {
+        var r = applySec.getBoundingClientRect();
+        var show = window.scrollY > 700 && !(r.top < window.innerHeight && r.bottom > 0) && !document.getElementById('successCard').offsetParent;
+        pill.classList.toggle('hidden', !show); pill.classList.toggle('flex', show);
+      }
+      window.addEventListener('scroll', pillCheck, { passive: true }); pillCheck();
+
+      // ---------- Deadline countdown ----------
+      var deadline = new Date(CONFIG.intakeDeadline).getTime();
+      document.getElementById('cdDate').textContent = new Date(deadline).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+      var cd = { d: document.getElementById('cdDays'), h: document.getElementById('cdHours'), m: document.getElementById('cdMins'), s: document.getElementById('cdSecs') };
+      function pad(n) { return String(n).padStart(2, '0'); }
+      function setVal(el, v) { if (el.textContent !== v) { el.textContent = v; el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick'); } }
+      var cdTimer;
+      function cdTick() {
+        var diff = deadline - Date.now();
+        if (diff <= 0) {
+          clearInterval(cdTimer);
+          document.getElementById('cdGrid').classList.add('hidden');
+          document.getElementById('cdClosed').classList.remove('hidden');
+          document.getElementById('cdStatus').textContent = 'Intake window closed';
+          return;
+        }
+        setVal(cd.d, pad(Math.floor(diff / 86400000)));
+        setVal(cd.h, pad(Math.floor(diff / 3600000) % 24));
+        setVal(cd.m, pad(Math.floor(diff / 60000) % 60));
+        setVal(cd.s, pad(Math.floor(diff / 1000) % 60));
+      }
+      cdTick(); cdTimer = setInterval(cdTick, 1000);
+
+      // ---------- Dossier audit + form sync ----------
+      var reqs = document.querySelectorAll('.req');
+      var formChecks = document.getElementById('formChecks');
+      reqs.forEach(function (r) {
+        var lbl = document.createElement('label');
+        lbl.className = 'doc-chip cursor-pointer';
+        lbl.innerHTML = '<input type="checkbox" class="sr-only" value="' + r.dataset.doc + '" /><span class="flex items-center gap-3 rounded-xl border-2 border-slate-200 px-3.5 py-2.5 text-sm font-medium transition"><span class="chip-box w-5 h-5 rounded border-2 border-slate-300 flex items-center justify-center text-transparent"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>' + r.querySelector('.req-title').textContent + '</span>';
+        formChecks.appendChild(lbl);
+      });
+      var chips = formChecks.querySelectorAll('input');
+      var ring = document.getElementById('ringFill'), fill = document.getElementById('barFill');
+      var pctEl = document.getElementById('pct'), pctMsg = document.getElementById('pctMsg');
+      var msgs = ['Start by ticking what you have.', 'Good start.', 'Building momentum.', 'Almost halfway.', 'Past the halfway mark.', 'Strong dossier forming.', 'One document to go.', 'Dossier ready — submit your application.'];
+      function setDoc(name, done) {
+        reqs.forEach(function (r) {
+          if (r.dataset.doc === name) { r.dataset.done = String(done); r.setAttribute('aria-pressed', String(done)); r.querySelector('.req-tag').textContent = done ? 'Ready' : 'Pending'; }
+        });
+        chips.forEach(function (c) { if (c.value === name) c.checked = done; });
+        refresh();
+      }
+      function refresh() {
+        var n = 0; reqs.forEach(function (r) { if (r.dataset.done === 'true') n++; });
+        var pct = Math.round(n / 7 * 100);
+        pctEl.textContent = pct; pctMsg.textContent = msgs[n];
+        fill.style.width = pct + '%';
+        ring.style.strokeDashoffset = 314.16 - 314.16 * n / 7;
+      }
+      reqs.forEach(function (r) { r.addEventListener('click', function () { setDoc(r.dataset.doc, r.dataset.done !== 'true'); }); });
+      chips.forEach(function (c) { c.addEventListener('change', function () { setDoc(c.value, c.checked); }); });
+      refresh();
+
+      // ---------- Roadmap ----------
+      var stepBtns = document.querySelectorAll('.step-btn'), panels = document.querySelectorAll('.step-panel');
+      var prev = document.getElementById('prevStep'), next = document.getElementById('nextStep'), line = document.getElementById('progressLine');
+      var current = 1;
+      function goTo(step) {
+        current = step;
+        stepBtns.forEach(function (b) { b.setAttribute('aria-selected', String(Number(b.dataset.step) === step)); });
+        panels.forEach(function (p, i) { p.classList.toggle('active', i + 1 === step); });
+        line.style.width = ((step - 1) / 3 * 75) + '%';
+        prev.disabled = step === 1;
+        next.textContent = step === 4 ? 'Apply Now \u2192' : 'Next Stage \u2192';
+      }
+      stepBtns.forEach(function (b) { b.addEventListener('click', function () { goTo(Number(b.dataset.step)); }); });
+      prev.addEventListener('click', function () { if (current > 1) goTo(current - 1); });
+      next.addEventListener('click', function () { if (current < 4) goTo(current + 1); else applySec.scrollIntoView({ behavior: 'smooth' }); });
+      goTo(1);
+
+      // ---------- Scroll reveal + counters ----------
+      function animateCounter(el) {
+        var to = parseFloat(el.dataset.to), dec = parseInt(el.dataset.dec || '0', 10), t0 = null, dur = 1600;
+        function step(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min((ts - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+          var val = to * eased;
+          el.textContent = dec ? val.toFixed(dec) : Math.round(val).toLocaleString('en-GB');
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            e.target.classList.add('in');
+            e.target.querySelectorAll('.counter').forEach(function (c) { if (!c.dataset.done) { c.dataset.done = '1'; animateCounter(c); } });
+            io.unobserve(e.target);
+          });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      } else {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+        document.querySelectorAll('.counter').forEach(animateCounter);
+      }
+
+      // ---------- Application form ----------
+      var form = document.getElementById('applyForm'), ok = document.getElementById('successCard');
+      function flag(input, bad) { var e = input.parentElement.querySelector('.err'); if (e) e.classList.toggle('hidden', !bad); input.classList.toggle('border-red-400', bad); return !bad; }
+      form.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var n = form.fName, em = form.fEmail, ph = form.fPhone, fd = form.fField;
+        var valid = [
+          flag(n, n.value.trim().length < 3),
+          flag(em, !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())),
+          flag(ph, !/^[+\d][\d\s()-]{7,}$/.test(ph.value.trim())),
+          flag(fd, fd.value === '')
+        ].every(Boolean);
+        var consent = document.getElementById('fConsent').checked;
+        document.getElementById('consentErr').classList.toggle('hidden', consent);
+        if (!valid || !consent) return;
+        var docs = []; chips.forEach(function (c) { if (c.checked) docs.push(c.value); });
+        var body = 'LIFELINE TRAVEL CONSULT — UK HEALTHCARE PROGRAM APPLICATION\n\n' +
+          'Name: ' + n.value.trim() + '\n' +
+          'Email: ' + em.value.trim() + '\n' +
+          'Phone/WhatsApp: ' + ph.value.trim() + '\n' +
+          'Health field: ' + fd.value + '\n' +
+          'Relocating with dependants: ' + (document.getElementById('fDeps').checked ? 'Yes' : 'No') + '\n' +
+          'Documents ready (' + docs.length + '/7): ' + (docs.length ? docs.join(', ') : 'None yet') + '\n' +
+          'Submitted: ' + new Date().toUTCString() + '\n\n' +
+          'Request: Please complete my eligibility check and send me the full pricing framework.';
+        var subject = 'Program Application — ' + fd.value + ' — ' + n.value.trim();
+        window.location.href = 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        document.getElementById('okName').textContent = n.value.trim().split(' ')[0];
+        form.classList.add('hidden'); ok.classList.remove('hidden');
+        ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        pillCheck();
+      });
+      document.getElementById('againBtn').addEventListener('click', function () {
+        form.reset(); reqs.forEach(function (r) { setDoc(r.dataset.doc, false); });
+        ok.classList.add('hidden'); form.classList.remove('hidden');
+      });
+    })();
+  </script>
+</body>
+</html>
